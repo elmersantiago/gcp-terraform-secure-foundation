@@ -53,7 +53,7 @@ resource "google_compute_instance" "vm" {
     enable_integrity_monitoring = true
   }
 
-  metadata = {
+   metadata = {
     block-project-ssh-keys = "true"
     enable-oslogin         = "TRUE"
   }
