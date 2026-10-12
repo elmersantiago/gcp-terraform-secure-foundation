@@ -43,7 +43,12 @@ resource "google_compute_instance" "vm" {
     subnetwork = google_compute_subnetwork.subnet.id
   }
 
-  shielded_instance_config {
+  service_account {
+    email  = google_service_account.vm.email
+    scopes = ["cloud-platform"]
+  }
+
+shielded_instance_config {
     enable_secure_boot          = true
     enable_vtpm                 = true
     enable_integrity_monitoring = true
