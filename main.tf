@@ -25,6 +25,7 @@ resource "google_compute_firewall" "internal_ssh" {
   target_tags   = ["internal-ssh"]
 }
 
+
 resource "google_compute_instance" "vm" {
   name         = "${var.environment}-secure-vm"
   machine_type = var.machine_type
@@ -36,12 +37,13 @@ resource "google_compute_instance" "vm" {
       image = "debian-cloud/debian-12"
       size  = 20
       type  = "pd-balanced"
+    }
   }
-}
+
   network_interface {
     subnetwork = google_compute_subnetwork.subnet.id
   }
-}
+
   service_account {
     email  = google_service_account.vm.email
     scopes = ["cloud-platform"]
@@ -53,10 +55,8 @@ resource "google_compute_instance" "vm" {
     enable_integrity_monitoring = true
   }
 
-   metadata = {
+  metadata = {
     block-project-ssh-keys = "true"
     enable-oslogin         = "TRUE"
   }
 }
-
-
