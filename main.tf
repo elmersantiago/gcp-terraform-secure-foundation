@@ -37,11 +37,11 @@ resource "google_compute_instance" "vm" {
       size  = 20
       type  = "pd-balanced"
   }
-
+}
   network_interface {
     subnetwork = google_compute_subnetwork.subnet.id
   }
-
+}
   service_account {
     email  = google_service_account.vm.email
     scopes = ["cloud-platform"]
