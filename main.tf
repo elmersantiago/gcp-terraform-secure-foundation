@@ -48,8 +48,7 @@ resource "google_compute_instance" "vm" {
     enable_vtpm                 = true
     enable_integrity_monitoring = true
   }
- metadata = {
-  block-project-ssh-keys = "true"
-  enable-oslogin = "TRUE"
- }
-}
+  metadata = {
+    block-project-ssh-keys = "true"
+    enable-oslogin         = "TRUE"
+  }
