@@ -1,0 +1,7 @@
+project_id   = "replace-with-your-gcp-project-id"
+region       = "us-central1"
+zone         = "us-central1-a"
+environment  = "dev"
+network_name = "secure-foundation-vpc"
+subnet_cidr  = "10.10.0.0/24"
+machine_type = "e2-micro"
