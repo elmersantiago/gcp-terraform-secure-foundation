@@ -52,3 +52,4 @@ resource "google_compute_instance" "vm" {
     block-project-ssh-keys = "true"
     enable-oslogin         = "TRUE"
   }
+}
