@@ -36,7 +36,6 @@ resource "google_compute_instance" "vm" {
       image = "debian-cloud/debian-12"
       size  = 20
       type  = "pd-balanced"
-    }
   }
 
   network_interface {
@@ -48,13 +47,16 @@ resource "google_compute_instance" "vm" {
     scopes = ["cloud-platform"]
   }
 
-shielded_instance_config {
+  shielded_instance_config {
     enable_secure_boot          = true
     enable_vtpm                 = true
     enable_integrity_monitoring = true
   }
+
   metadata = {
     block-project-ssh-keys = "true"
     enable-oslogin         = "TRUE"
   }
 }
+
+
